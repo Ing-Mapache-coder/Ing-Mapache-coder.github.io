@@ -37,7 +37,7 @@
             z-index: 10;
             max-width: 900px;
             color: var(--text-color);
-            font-size:clamp(26px, 5vw, 48px);
+            font-size: clamp(26px, 5vw, 48px);
             line-height: 1.25;
             font-weight: 600;
             text-shadow: 0 2px 0 rgba(255, 255, 255, 0.15);
@@ -161,7 +161,14 @@
 
         (function () {
             const sunflowerContainer = document.getElementById('sunflowers');
-            const total = 50;
+            let total;
+            if (window.innerWidth < 600) {
+                total = 8;
+            } else if (window.innerWidth < 1000) {
+                total = 20;
+            } else {
+                total = 50;
+            }
             for (let i = 0; i < total; i++) {
                 const sf = document.createElement('div');
                 sf.className = 'sunflower';
